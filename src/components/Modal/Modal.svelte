@@ -124,9 +124,15 @@
       <main>
         <h2>Key developments</h2>
         <p>{@html datum.key_developments.replace(/\n/g, '<br>')}</p>
+        {#if (datum.inclusion_accessibility_risk_details)}
+          <h4>Inclusion & Accessibility Risks</h4>
+          <div class="details-section">
+            <p>{@html datum.inclusion_accessibility_risk_details.replace(/\n/g, '<br>')}</p>
+          </div>
+        {/if}
         {#if (datum.known_controversies_details)}
           <h4>Known Controversies</h4>
-          <div class="known-controversies">
+          <div class="details-section">
             <p>{@html datum.known_controversies_details.replace(/\n/g, '<br>')}</p>
           </div>
         {/if}
@@ -413,11 +419,11 @@ main h4 {
   font-size: 1.09rem;
 }
 
-.known-controversies {
+.details-section {
   margin: 0.7em 0 1.2em 0;
 }
 
-.known-controversies p {
+.details-section p {
   margin: 0;
   font-size: 1.06rem;
   line-height: 1.3;
@@ -458,7 +464,7 @@ main h4 {
 }
 
 .share-panel {
-  margin: 0.5rem 1.1rem 0 0;
+  margin: 0.5rem 0 1.1rem 0;
   text-align: left;
 }
 </style>
