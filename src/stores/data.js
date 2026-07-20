@@ -13,7 +13,7 @@ import {
   interoperabilityFilter,
   dataProtectionFilter,
   inclusionFilter,
-  // controversiesFilter,
+  controversiesFilter,
   // technologyPartnerFilter,
   // fundingSourceFilter,
   // internationalpartnerFilter
@@ -30,7 +30,7 @@ import {
   interoperabilityColorScale,
   protectionColorScale,
   inclusionColorScale,
-  // controversiesColorScale,
+  controversiesColorScale,
   // fundersColorScale,
 } from '../stores/scales';
 import styles from '../utils/styles';
@@ -64,7 +64,7 @@ export const scaledData = derived(
     interoperabilityColorScale,
     protectionColorScale,
     inclusionColorScale,
-    // controversiesColorScale,
+    controversiesColorScale,
     // fundersColorScale,
     ],
   ([
@@ -79,7 +79,7 @@ export const scaledData = derived(
     $interoperabilityColorScale,
     $protectionColorScale,
     $inclusionColorScale,
-    // $controversiesColorScale,
+    $controversiesColorScale,
     // $fundersColorScale,
     ]) => {
     return $rawData.map((d) => {
@@ -159,12 +159,12 @@ export const scaledData = derived(
             color: $inclusionColorScale[d.categories.inclusion],
             filterable: true
           },
-          // controversies: {
-          //   name: d.categories.controversies,
-          //   title: $categoryNameScale.controversies,
-          //   color: $controversiesColorScale[d.categories.controversies],
-          //   filterable: true
-          // },
+          controversies: {
+            name: d.categories.controversies,
+            title: $categoryNameScale.controversies,
+            color: $controversiesColorScale[d.categories.controversies],
+            filterable: true
+          },
           // technology: {
           //   name: d.categories.technology,
           //   title: $categoryNameScale.technology,
@@ -201,7 +201,7 @@ export const data = derived(
     interoperabilityFilter,
     dataProtectionFilter,
     inclusionFilter,
-    // controversiesFilter,
+    controversiesFilter,
     // technologyPartnerFilter,
     // fundingSourceFilter,
     // internationalpartnerFilter,
@@ -218,7 +218,7 @@ export const data = derived(
     $interoperabilityFilter,
     $dataProtectionFilter,
     $inclusionFilter,
-    // $controversiesFilter,
+    $controversiesFilter,
     // $technologyPartnerFilter,
     // $fundingSourceFilter,
     // $internationalpartnerFilter,
@@ -236,9 +236,9 @@ export const data = derived(
           hasOverlap([d.categories.medium.name], $idMediumFilter) &&
           hasOverlap([d.categories.interoperability.name],  $interoperabilityFilter)  &&
           hasOverlap([d.categories.protection.name], $dataProtectionFilter) &&
-          hasOverlap([d.categories.inclusion.name], $inclusionFilter) 
+          hasOverlap([d.categories.inclusion.name], $inclusionFilter) &&
+          hasOverlap([d.categories.controversies.name], $controversiesFilter)
           // &&
-          // hasOverlap([d.categories.controversies.name], $controversies) &&
           // hasOverlap([d.categories.technology.name], $technologyPartnerFilter) &&
           // hasOverlap([d.categories.funding.name], $fundingSourceFilter) &&
           // hasOverlap([d.categories.international_partner.name],$internationalpartnerFilter),

@@ -19,7 +19,7 @@
     interoperabilityFilter,
     dataProtectionFilter,
     inclusionFilter,
-    // controversiesFilter,
+    controversiesFilter,
     // technologyPartnerFilter,
     // fundingSourceFilter,
     // internationalpartnerFilter
@@ -40,7 +40,7 @@
     fullinteroperabilityRollup,
     fulldataProtectionRollup,
     fullinclusionRollup,
-    // fullcontroversiesRollup,
+    fullcontroversiesRollup,
     // fulltechnologyPartnerRollup,
     // fullfundingSourceRollup,
     // fullinternationalpartnerRollup,
@@ -51,7 +51,7 @@
     interoperabilityRollup,
     dataProtectionRollup,
     inclusionRollup,
-    // controversiesRollup,
+    controversiesRollup,
     // technologyPartnerRollup,
     // fundingSourceRollup,
     // internationalpartnerRollup
@@ -196,14 +196,14 @@
       rollup: $inclusionRollup,
       info: $definitions.inclusion_risk
     },
-    // {
-    //   filter: controversiesFilter,
-    //   label: $categoryNameScale.controversies,
-    //   shortCuts: [],
-    //   fullRollup: $fullcontroversiesRollup,
-    //   rollup: $controversiesRollup,
-    //   info: $definitions.controversies
-    // },
+    {
+      filter: controversiesFilter,
+      label: $categoryNameScale.controversies,
+      shortCuts: [],
+      fullRollup: $fullcontroversiesRollup,
+      rollup: $controversiesRollup,
+      info: $definitions.controversies
+    },
     // {
     //   filter: technologyPartnerFilter,
     //   label: $categoryNameScale.technology,

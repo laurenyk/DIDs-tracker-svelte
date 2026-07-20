@@ -3,8 +3,7 @@ import { rollups } from 'd3';
 import { sortBy } from 'lodash-es';
 
 import { scaledData, data } from './data';
-import { statusLevels, useCaseLevels, accessLevels, infrastructureLevels, architectureLevels,   incomeLevels,  authenticationLevels,  mediumLevels,  interoperabilityLevels,  dataprotectionLevels,  inclusionLevels,  controversiesLevels,  fundersLevels,
-} from '../utils/levels';
+import { statusLevels, useCaseLevels, accessLevels, infrastructureLevels, architectureLevels,   incomeLevels,  authenticationLevels,  mediumLevels,  interoperabilityLevels,  dataprotectionLevels,  inclusionLevels, controversiesLevels } from '../utils/levels';
 import { sortToEnd } from '../utils/misc';
 
 const generateRollup = (arr, sortArr = null) => {
@@ -55,7 +54,7 @@ export const fullcontroversiesRollup = derived(scaledData, $scaledData => genera
 
 export const fulltechnologyPartnerRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.technology)));
 
-export const fullfundingSourceRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.funding), fundersLevels.map(d => d.name)));
+export const fullfundingSourceRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.funding)));
 
 export const fullinternationalpartnerRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.international_partner)));
 
@@ -89,7 +88,7 @@ export const controversiesRollup = derived(showData, $showData => generateRollup
 
 export const technologyPartnerRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.technology)));
 
-export const fundingSourceRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.funding), fundersLevels.map(d => d.name)));
+export const fundingSourceRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.funding)));
 
 export const internationalpartnerRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.international_partner)));
 

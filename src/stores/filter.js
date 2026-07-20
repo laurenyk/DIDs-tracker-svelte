@@ -12,8 +12,10 @@ import {
   interoperabilityLevels,
   dataprotectionLevels,
   inclusionLevels,
-  // controversiesLevels,
-  // fundersLevels,
+  controversiesLevels,
+  // technologyPartnerFilter,
+  // fundingSourceFilter,
+  // internationalpartnerFilter
 } from '../utils/levels';
 import { sortToEnd } from '../utils/misc';
 
@@ -133,8 +135,8 @@ export const authenticationMethodFilter = createMultiFilter();
 export const idMediumFilter = createMultiFilter();
 export const interoperabilityFilter = createMultiFilter();   
 export const dataProtectionFilter = createMultiFilter();
-export const inclusionFilter = createMultiFilter();   
-// export const controversiesFilter = createMultiFilter();
+export const inclusionFilter = createMultiFilter();
+export const controversiesFilter = createMultiFilter();
 // export const technologyPartnerFilter = createMultiFilter();   
 // export const fundingSourceFilter = createMultiFilter();
 // export const internationalpartnerFilter = createMultiFilter();
@@ -154,7 +156,7 @@ export const initFilters = (data) => {
   interoperabilityFilter.init(interoperabilityLevels.map((d) => d.name));
   dataProtectionFilter.init(dataprotectionLevels.map((d) => d.name));
   inclusionFilter.init(inclusionLevels.map((d) => d.name));
-  // controversiesFilter.init(controversiesLevels.map((d) => d.name));
+  controversiesFilter.init(controversiesLevels.map((d) => d.name));
   // technologyPartnerFilter.init(
   //   data,
   //   'categories.technology_partnerships'
@@ -198,9 +200,9 @@ export const filterByCategory = (category, name) => {
     case 'inclusion':
       inclusionFilter.click(name);
       break;
-    // case 'controversies':
-    //   controversiesFilter.click(name);
-    //   break;    
+    case 'controversies':
+      controversiesFilter.click(name);
+      break;    
     // case 'technology':
     //   technologyPartnerFilter.click(name);
     //   break;
@@ -210,7 +212,7 @@ export const filterByCategory = (category, name) => {
     // case 'international_partner':
     //   internationalpartnerFilter.click(name);
     //   break;  
- }
+ };
 };
 
 export const resetAllFilters = () => {
@@ -224,7 +226,7 @@ export const resetAllFilters = () => {
   interoperabilityFilter.selectAll();
   dataProtectionFilter.selectAll();
   inclusionFilter.selectAll();
-  // controversiesFilter.selectAll();
+  controversiesFilter.selectAll();
   // technologyPartnerFilter.selectAll();
   // fundingSourceFilter.selectAll();
   // internationalpartnerFilter.selectAll();
@@ -242,7 +244,7 @@ export const anyFilterActive = derived(
     interoperabilityFilter,
     dataProtectionFilter,
     inclusionFilter,
-    // controversiesFilter,
+    controversiesFilter,
     // technologyPartnerFilter,
     // fundingSourceFilter,
     // internationalpartnerFilter
@@ -258,7 +260,7 @@ export const anyFilterActive = derived(
     $interoperabilityFilter,
     $dataProtectionFilter,
     $inclusionFilter,
-    // $controversiesFilter,
+    $controversiesFilter,
     // $technologyPartnerFilter,
     // $fundingSourceFilter,
     // $internationalpartnerFilter
@@ -274,9 +276,9 @@ export const anyFilterActive = derived(
       areAllSelected($idMediumFilter) &&
       areAllSelected($interoperabilityFilter) &&
       areAllSelected($dataProtectionFilter) &&
-      areAllSelected($inclusionFilter) 
+      areAllSelected($inclusionFilter) &&
+      areAllSelected($controversiesFilter)
       // &&
-      // areAllSelected($controversiesFilter) &&
       // areAllSelected($technologyPartnerFilter) &&
       // areAllSelected($fundingSourceFilter) &&
       // areAllSelected($internationalpartnerFilter)
@@ -303,7 +305,7 @@ export const applyParams = (params) => {
   interoperabilityFilter.applyBoolArray(interoperability);
   dataProtectionFilter.applyBoolArray(protection);
   inclusionFilter.applyBoolArray(inclusion);
-  // controversiesFilter.applyBoolArray(controversies);
+  controversiesFilter.applyBoolArray(controversies);
   // // technologyPartnerFilter.applyBoolArray(technology);
   // fundingSourceFilter.applyBoolArray(funding);
   // internationalpartnerFilter.applyBoolArray(international_partner);
