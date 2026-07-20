@@ -29,6 +29,7 @@ export const loadTrackerData = async (dataPath) => {
       overview_spotlight: d['Overview Spotlight'],
       key_developments: d['Key Developments'],
       key_developments_spotlight: d['Key Developments Spotlight'],
+      inclusion_accessibility_risk_details: d['Inclusion & Accessibility Risk Details'],
       known_controversies_details: d['Known Controversies Details'],
       categories: {
         // former version
