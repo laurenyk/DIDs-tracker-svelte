@@ -124,6 +124,12 @@
       <main>
         <h2>Key developments</h2>
         <p>{@html datum.key_developments.replace(/\n/g, '<br>')}</p>
+        {#if (datum.known_controversies_details)}
+          <h4>Known Controversies</h4>
+          <div class="known-controversies">
+            <p>{@html datum.known_controversies_details.replace(/\n/g, '<br>')}</p>
+          </div>
+        {/if}
         <h4>Sources</h4>
         <div class="sources">
           {#if (datum.sources.managing_authority_name)}
@@ -407,6 +413,17 @@ main h4 {
   font-size: 1.09rem;
 }
 
+.known-controversies {
+  margin: 0.7em 0 1.2em 0;
+}
+
+.known-controversies p {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.3;
+  color: #3d4852;
+}
+
 .sources {
   margin: 0.7em 0 1.2em 0;
 }
@@ -441,7 +458,7 @@ main h4 {
 }
 
 .share-panel {
-  margin: 0.5rem 0 1.1rem 0;
+  margin: 0.5rem 1.1rem 0 0;
   text-align: left;
 }
 </style>
