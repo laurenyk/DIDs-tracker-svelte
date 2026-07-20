@@ -141,7 +141,6 @@
           {#if (datum.sources.managing_authority_name)}
             <a href={datum.sources.managing_authority_url} target="_blank">{datum.sources.managing_authority_name}</a>
           {/if}
-          <p>Atlantic Council Research</p>
           {#if (datum.sources.media_urls.length)}
             <ul class="media-sources">
               {#each datum.sources.media_urls as url}
@@ -149,6 +148,7 @@
               {/each}
             </ul>
           {/if}
+          <p>Atlantic Council Research</p>
         </div>
         <h4>Share</h4>
         <div class="share-panel">
