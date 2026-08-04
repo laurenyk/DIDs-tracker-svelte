@@ -29,7 +29,7 @@ npm run dev
 ```
 If you receive an error that the file cannot be loaded because running scripts is disabled on this system
 ```bash
-owershell -ex bypass
+powershell -ex bypass
 ```
 And then run `npm run dev` again.
 
