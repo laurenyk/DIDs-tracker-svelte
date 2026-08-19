@@ -63,7 +63,7 @@
       }
     },
     ...Object.keys(data.categories)
-    .filter(key => ['system_name', 'launch_year', 'income_group'].includes(key))
+    .filter(key => ['system', 'income'].includes(key))
     .map(key => {
       return {
         category: key,
