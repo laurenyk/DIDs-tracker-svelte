@@ -63,6 +63,7 @@
       }
     },
     ...Object.keys(data.categories)
+    .filter(key => ['system_name', 'launch_year', 'income_group'].includes(key))
     .map(key => {
       return {
         category: key,
@@ -212,7 +213,7 @@
       >
         {tag.category === 'new_status' ? getDisplayStatus(tag.name) : tag.name}
       </text>
-      </g>
+       </g>
     </g>
   {/each}
 </g>
