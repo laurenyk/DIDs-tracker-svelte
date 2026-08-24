@@ -261,21 +261,6 @@
     </div>
   </div>
 
-  <div class="extra grid-container" transition:slide>
-    {#each dropdownsBottom as { id, filter, label, fullRollup, rollup, info } (id)}
-      <Dropdown
-        filter={filter}
-        label={label}
-        fullRollup={fullRollup}
-        rollup={rollup}
-        info={info}
-        tooltip={tooltip}
-        showReset
-        showClickHint={`${$isVertical ? 'Tap' : 'Click'} to filter`}
-      />
-    {/each}
-  </div>
-
   <div class="more-filters-wrapper">
     <FilterTitle
       label="More filters"
@@ -337,7 +322,7 @@
 
 .more-filters-wrapper {
   padding: 0 2.2rem;
-  margin-top: -0.3rem;
+  margin-top: 0;
 }
 
 .share-panel, .logo {
@@ -386,7 +371,6 @@
   }
   .more-filters-wrapper {
     padding: 0 0.4rem;
-    margin-top: -0.3rem;
   }
 }
 
