@@ -12,6 +12,7 @@ import {
   dataProtectionFilter,
   inclusionFilter,
   controversiesFilter,
+  launchYearFilter,
   // technologyPartnerFilter,
   // fundingSourceFilter,
   // internationalpartnerFilter
@@ -41,6 +42,7 @@ export const categoryNameScale = writable({
   protection:    'Data Protection Frameworks',
   inclusion:   'Inclusion Risk',
   controversies:    'Known Controversies',
+  launch_year:      'Launch Year',
   // technology:   'Technology Vendor',
   // funding:   'Funding Source',
   // international_partner:  'Internation Partner',
@@ -94,6 +96,10 @@ export const inclusionColorScale = derived(inclusionFilter, $inclusionFilter => 
 
 export const controversiesColorScale = derived(controversiesFilter, $controversiesFilter => {
   return generateHarmonicColorScale($controversiesFilter.map(d => d.name));
+});
+
+export const launchYearColorScale = derived(launchYearFilter, $launchYearFilter => {
+  return generateHarmonicColorScale($launchYearFilter.map(d => d.name));
 });
 
 // export const technologyPartnerColorScale = derived(technologyPartnerFilter, $technologyPartnerFilter => {

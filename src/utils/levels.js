@@ -312,6 +312,10 @@ export const fundersLevels = [
 ];
 
 
-
-
-
+export const getLaunchYearLevels = (data) => {
+  const years = [...new Set(data.map(d => d.categories.launch_year))]
+    .filter(y => y !== 'Undecided')
+    .sort();
+  const all = [...years, 'Undecided'];
+  return all.map((name, id) => ({ id, name }));
+};

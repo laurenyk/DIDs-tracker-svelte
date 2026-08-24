@@ -13,6 +13,7 @@ import {
   dataprotectionLevels,
   inclusionLevels,
   controversiesLevels,
+  getLaunchYearLevels,
   // technologyPartnerFilter,
   // fundingSourceFilter,
   // internationalpartnerFilter
@@ -137,6 +138,7 @@ export const interoperabilityFilter = createMultiFilter();
 export const dataProtectionFilter = createMultiFilter();
 export const inclusionFilter = createMultiFilter();
 export const controversiesFilter = createMultiFilter();
+export const launchYearFilter = createMultiFilter();
 // export const technologyPartnerFilter = createMultiFilter();   
 // export const fundingSourceFilter = createMultiFilter();
 // export const internationalpartnerFilter = createMultiFilter();
@@ -157,6 +159,7 @@ export const initFilters = (data) => {
   dataProtectionFilter.init(dataprotectionLevels.map((d) => d.name));
   inclusionFilter.init(inclusionLevels.map((d) => d.name));
   controversiesFilter.init(controversiesLevels.map((d) => d.name));
+  launchYearFilter.init(getLaunchYearLevels(data).map((d) => d.name));
   // technologyPartnerFilter.init(
   //   data,
   //   'categories.technology_partnerships'
@@ -202,6 +205,9 @@ export const filterByCategory = (category, name) => {
       break;
     case 'controversies':
       controversiesFilter.click(name);
+      break;
+    case 'launch_year':
+      launchYearFilter.click(name);
       break;    
     // case 'technology':
     //   technologyPartnerFilter.click(name);
@@ -227,6 +233,7 @@ export const resetAllFilters = () => {
   dataProtectionFilter.selectAll();
   inclusionFilter.selectAll();
   controversiesFilter.selectAll();
+  launchYearFilter.selectAll();
   // technologyPartnerFilter.selectAll();
   // fundingSourceFilter.selectAll();
   // internationalpartnerFilter.selectAll();
@@ -245,9 +252,7 @@ export const anyFilterActive = derived(
     dataProtectionFilter,
     inclusionFilter,
     controversiesFilter,
-    // technologyPartnerFilter,
-    // fundingSourceFilter,
-    // internationalpartnerFilter
+    launchYearFilter,
   ],
   ([
     $statusFilter,
@@ -261,10 +266,7 @@ export const anyFilterActive = derived(
     $dataProtectionFilter,
     $inclusionFilter,
     $controversiesFilter,
-    // $technologyPartnerFilter,
-    // $fundingSourceFilter,
-    // $internationalpartnerFilter
-
+    $launchYearFilter,
   ]) => {
     return !(
       areAllSelected($statusFilter) &&
@@ -277,11 +279,8 @@ export const anyFilterActive = derived(
       areAllSelected($interoperabilityFilter) &&
       areAllSelected($dataProtectionFilter) &&
       areAllSelected($inclusionFilter) &&
-      areAllSelected($controversiesFilter)
-      // &&
-      // areAllSelected($technologyPartnerFilter) &&
-      // areAllSelected($fundingSourceFilter) &&
-      // areAllSelected($internationalpartnerFilter)
+      areAllSelected($controversiesFilter) &&
+      areAllSelected($launchYearFilter)
     )    
   },
   false
@@ -293,7 +292,7 @@ export const anyFilterActive = derived(
 export const applyParams = (params) => {
   if (!params || Object.keys(params).length === 0) return;
 
-  const { status, useCase, country, system, income, authentication, medium, interoperability, protection, inclusion, controversies, technology, funding, international_partner } =
+  const { status, useCase, country, system, income, authentication, medium, interoperability, protection, inclusion, controversies, launch_year, technology, funding, international_partner } =
     params;
 
   statusFilter.applyBoolArray(status);
@@ -306,6 +305,7 @@ export const applyParams = (params) => {
   dataProtectionFilter.applyBoolArray(protection);
   inclusionFilter.applyBoolArray(inclusion);
   controversiesFilter.applyBoolArray(controversies);
+  launchYearFilter.applyBoolArray(launch_year);
   // // technologyPartnerFilter.applyBoolArray(technology);
   // fundingSourceFilter.applyBoolArray(funding);
   // internationalpartnerFilter.applyBoolArray(international_partner);
