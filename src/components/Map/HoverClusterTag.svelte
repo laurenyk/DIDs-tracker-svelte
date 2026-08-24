@@ -16,7 +16,7 @@
   const dispatch = createEventDispatcher();
 
   const labelArrowWidth = 30;
-  const pathGrowDuration = 200;
+  const pathGrowDuration = 300;
   const cornerRadius = 5;
   const offset = 20;
 
@@ -138,6 +138,7 @@
         class="tag-label-path background"
         class:country={tag.category === 'country'}
         d={tagLabelPath(tag.x2, tag.y2, tag.x3, tag.y3, tag.x4, tag.y4, tag.x5, tag.y5, tag.x6, tag.y6, tag.direction * cornerRadius)}
+        fill={data.color}22
       />
       <path
         class="tag-label-path"
