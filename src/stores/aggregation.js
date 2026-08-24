@@ -3,7 +3,7 @@ import { rollups } from 'd3';
 import { sortBy } from 'lodash-es';
 
 import { scaledData, data } from './data';
-import { statusLevels, useCaseLevels, accessLevels, infrastructureLevels, architectureLevels,   incomeLevels,  authenticationLevels,  mediumLevels,  interoperabilityLevels,  dataprotectionLevels,  inclusionLevels, controversiesLevels } from '../utils/levels';
+import { statusLevels, useCaseLevels, accessLevels, infrastructureLevels, architectureLevels,   incomeLevels,  authenticationLevels,  mediumLevels,  interoperabilityLevels,  dataprotectionLevels,  inclusionLevels, controversiesLevels, launchYearLevels } from '../utils/levels';
 import { sortToEnd } from '../utils/misc';
 
 const generateRollup = (arr, sortArr = null) => {
@@ -52,6 +52,8 @@ export const fullinclusionRollup = derived(scaledData, $scaledData => generateRo
 
 export const fullcontroversiesRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.controversies), controversiesLevels.map(d => d.name)));
 
+export const fulllaunchYearRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.launch_year), launchYearLevels.map(d => d.name)));
+
 export const fulltechnologyPartnerRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.technology)));
 
 export const fullfundingSourceRollup = derived(scaledData, $scaledData => generateRollup($scaledData.map(d => d.categories.funding)));
@@ -85,6 +87,8 @@ export const dataProtectionRollup = derived(showData, $showData => generateRollu
 export const inclusionRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.inclusion), inclusionLevels.map(d => d.name)));
 
 export const controversiesRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.controversies), controversiesLevels.map(d => d.name)));
+
+export const launchYearRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.launch_year), launchYearLevels.map(d => d.name)));
 
 export const technologyPartnerRollup = derived(showData, $showData => generateRollup($showData.map(d => d.categories.technology)));
 

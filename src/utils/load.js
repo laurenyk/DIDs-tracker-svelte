@@ -12,6 +12,12 @@ const curate = (value) => {
   return value.replace('n/a', 'Undecided');
 };
 
+const curateYear = (value) => {
+  if (!value) return 'Undecided';
+  const trimmed = value.trim();
+  return /^\d{4}$/.test(trimmed) ? trimmed : 'Undecided';
+};
+
 export const loadTrackerData = async (dataPath) => {
   // load and format the data
   const data = await csv(dataPath, (d) => {
@@ -45,6 +51,7 @@ export const loadTrackerData = async (dataPath) => {
         protection: curate(d['Data Protection Framework']),
         inclusion: curate(d['Inclusion and Accessibility Risk']),
         controversies: curate(d['Known Controversies']),
+        launch_year: curateYear(d['Launch Year']),
         // technology: curate(d['Technology Providers']),
         // funding: curate(d['Funding Source']),
         // international_partner: curate(d['Internation Partners']),

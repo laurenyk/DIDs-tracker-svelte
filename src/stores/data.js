@@ -14,9 +14,7 @@ import {
   dataProtectionFilter,
   inclusionFilter,
   controversiesFilter,
-  // technologyPartnerFilter,
-  // fundingSourceFilter,
-  // internationalpartnerFilter
+  launchYearFilter,
 } from './filter';
 import { hasOverlap } from '../utils/logic';
 import {
@@ -31,7 +29,7 @@ import {
   protectionColorScale,
   inclusionColorScale,
   controversiesColorScale,
-  // fundersColorScale,
+  launchYearColorScale,
 } from '../stores/scales';
 import styles from '../utils/styles';
 
@@ -65,7 +63,7 @@ export const scaledData = derived(
     protectionColorScale,
     inclusionColorScale,
     controversiesColorScale,
-    // fundersColorScale,
+    launchYearColorScale,
     ],
   ([
     $rawData,
@@ -80,7 +78,7 @@ export const scaledData = derived(
     $protectionColorScale,
     $inclusionColorScale,
     $controversiesColorScale,
-    // $fundersColorScale,
+    $launchYearColorScale,
     ]) => {
     return $rawData.map((d) => {
       return {
@@ -165,6 +163,12 @@ export const scaledData = derived(
             color: $controversiesColorScale[d.categories.controversies],
             filterable: true
           },
+          launch_year: {
+            name: d.categories.launch_year,
+            title: $categoryNameScale.launch_year,
+            color: $launchYearColorScale[d.categories.launch_year],
+            filterable: true
+          },
           // technology: {
           //   name: d.categories.technology,
           //   title: $categoryNameScale.technology,
@@ -202,9 +206,7 @@ export const data = derived(
     dataProtectionFilter,
     inclusionFilter,
     controversiesFilter,
-    // technologyPartnerFilter,
-    // fundingSourceFilter,
-    // internationalpartnerFilter,
+    launchYearFilter,
     ],
   ([
     $scaledData,
@@ -219,9 +221,7 @@ export const data = derived(
     $dataProtectionFilter,
     $inclusionFilter,
     $controversiesFilter,
-    // $technologyPartnerFilter,
-    // $fundingSourceFilter,
-    // $internationalpartnerFilter,
+    $launchYearFilter,
     ]) => {
     return $scaledData.map((d) => {
       return {
@@ -237,11 +237,8 @@ export const data = derived(
           hasOverlap([d.categories.interoperability.name],  $interoperabilityFilter)  &&
           hasOverlap([d.categories.protection.name], $dataProtectionFilter) &&
           hasOverlap([d.categories.inclusion.name], $inclusionFilter) &&
-          hasOverlap([d.categories.controversies.name], $controversiesFilter)
-          // &&
-          // hasOverlap([d.categories.technology.name], $technologyPartnerFilter) &&
-          // hasOverlap([d.categories.funding.name], $fundingSourceFilter) &&
-          // hasOverlap([d.categories.international_partner.name],$internationalpartnerFilter),
+          hasOverlap([d.categories.controversies.name], $controversiesFilter) &&
+          hasOverlap([d.categories.launch_year.name], $launchYearFilter)
       };
     });
   },

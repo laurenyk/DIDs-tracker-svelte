@@ -20,9 +20,7 @@
     dataProtectionFilter,
     inclusionFilter,
     controversiesFilter,
-    // technologyPartnerFilter,
-    // fundingSourceFilter,
-    // internationalpartnerFilter
+    launchYearFilter,
    } 
    
    
@@ -41,9 +39,7 @@
     fulldataProtectionRollup,
     fullinclusionRollup,
     fullcontroversiesRollup,
-    // fulltechnologyPartnerRollup,
-    // fullfundingSourceRollup,
-    // fullinternationalpartnerRollup,
+    fulllaunchYearRollup,
     systemNameRollup,
     incomeGroupRollup,
     authenticationMethodRollup,
@@ -52,9 +48,7 @@
     dataProtectionRollup,
     inclusionRollup,
     controversiesRollup,
-    // technologyPartnerRollup,
-    // fundingSourceRollup,
-    // internationalpartnerRollup
+    launchYearRollup,
   } from '../../stores/aggregation';
   import { categoryNameScale } from '../../stores/scales';
   import { isVertical } from '../../stores/device';
@@ -203,6 +197,14 @@
       fullRollup: $fullcontroversiesRollup,
       rollup: $controversiesRollup,
       info: $definitions.controversies
+    },
+    {
+      filter: launchYearFilter,
+      label: $categoryNameScale.launch_year,
+      shortCuts: [],
+      fullRollup: $fulllaunchYearRollup,
+      rollup: $launchYearRollup,
+      info: null
     },
     // {
     //   filter: technologyPartnerFilter,
