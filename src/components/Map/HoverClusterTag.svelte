@@ -226,7 +226,7 @@ g.tag-label {
 .tag-label-path.background {
   stroke: #e0f7fa;
   stroke-width: 7;
-  fill: {data.color}22;
+  fill: {data.color};
 }
 
 /* Tag Glassy Gradient Fill */
