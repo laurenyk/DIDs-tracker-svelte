@@ -312,24 +312,10 @@ export const fundersLevels = [
 ];
 
 
-export const launchYearLevels = [
-  { id: 0, name: '2004' },
-  { id: 1, name: '2006' },
-  { id: 2, name: '2007' },
-  { id: 3, name: '2009' },
-  { id: 4, name: '2010' },
-  { id: 5, name: '2012' },
-  { id: 6, name: '2013' },
-  { id: 7, name: '2016' },
-  { id: 8, name: '2017' },
-  { id: 9, name: '2018' },
-  { id: 10, name: '2019' },
-  { id: 11, name: '2020' },
-  { id: 12, name: '2021' },
-  { id: 13, name: '2022' },
-  { id: 14, name: '2023' },
-  { id: 15, name: '2024' },
-  { id: 16, name: '2025' },
-  { id: 17, name: '2026' },
-  { id: 18, name: 'Undecided' },
-];
+export const getLaunchYearLevels = (data) => {
+  const years = [...new Set(data.map(d => d.categories.launch_year))]
+    .filter(y => y !== 'Undecided')
+    .sort();
+  const all = [...years, 'Undecided'];
+  return all.map((name, id) => ({ id, name }));
+};

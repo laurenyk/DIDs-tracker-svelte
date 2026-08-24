@@ -13,7 +13,7 @@ import {
   dataprotectionLevels,
   inclusionLevels,
   controversiesLevels,
-  launchYearLevels,
+  getLaunchYearLevels,
   // technologyPartnerFilter,
   // fundingSourceFilter,
   // internationalpartnerFilter
@@ -159,7 +159,7 @@ export const initFilters = (data) => {
   dataProtectionFilter.init(dataprotectionLevels.map((d) => d.name));
   inclusionFilter.init(inclusionLevels.map((d) => d.name));
   controversiesFilter.init(controversiesLevels.map((d) => d.name));
-  launchYearFilter.init(launchYearLevels.map((d) => d.name));
+  launchYearFilter.init(getLaunchYearLevels(data).map((d) => d.name));
   // technologyPartnerFilter.init(
   //   data,
   //   'categories.technology_partnerships'
