@@ -130,13 +130,13 @@ h5 {
 
 .total {
   margin: 0.2rem 0.5rem 0.7rem 0.5rem;
-  font-size: 1.11rem;
+  font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
 
 .total span {
   font-weight: 700;
-  font-size: 1.23rem;
+  font-size: 1.05rem;
   color: #2196f3;
 }
 
