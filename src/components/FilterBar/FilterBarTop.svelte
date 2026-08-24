@@ -337,6 +337,7 @@
 
 .more-filters-wrapper {
   padding: 0 2.2rem;
+  margin-top: -0.3rem;
 }
 
 .share-panel, .logo {
@@ -385,6 +386,7 @@
   }
   .more-filters-wrapper {
     padding: 0 0.4rem;
+    margin-top: -0.3rem;
   }
 }
 
@@ -404,7 +406,7 @@
   cursor: pointer;
   letter-spacing: 0.07em;
   outline: none;
-  margin: 0.2em 0 0.3em 0;
+  margin: 0;
   position: relative;
   overflow: hidden;
   transition:
