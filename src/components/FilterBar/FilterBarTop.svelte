@@ -276,11 +276,13 @@
     {/each}
   </div>
 
-  <FilterTitle
-  label="More filters"
-  expandable
-  bind:expanded={extraFiltersGeoExpanded}
-/>
+  <div class="more-filters-wrapper">
+    <FilterTitle
+      label="More filters"
+      expandable
+      bind:expanded={extraFiltersGeoExpanded}
+    />
+  </div>
 
   {#if extraFiltersGeoExpanded}
   <div transition:slide>
@@ -333,6 +335,10 @@
   grid-template-columns: 1fr;
 }
 
+.more-filters-wrapper {
+  padding: 0 2.2rem;
+}
+
 .share-panel, .logo {
   display: none;
 }
@@ -376,6 +382,9 @@
     padding: 0.6rem 0.4rem;
     column-gap: 0.7rem;
     row-gap: 0.3rem;
+  }
+  .more-filters-wrapper {
+    padding: 0 0.4rem;
   }
 }
 
