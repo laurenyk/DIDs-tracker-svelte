@@ -19,7 +19,7 @@
  function draw(ctx) {
   ctx.fillStyle = color ? color : fallbackFillColor;
   ctx.strokeStyle = mode === 'stroke' && color ? color : strokeColor;
-  ctx.lineWidth = mode === 'stroke' ? 3.5 : 1.2;   // <--- reduced line widths
+  ctx.lineWidth = mode === 'stroke' ? 5 : 1;   // <--- reduced line widths
 
   const p = new Path2D(path);
   ctx.beginPath();
