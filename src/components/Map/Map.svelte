@@ -165,7 +165,7 @@
 
   $: if ($data && !$isVertical && $mapWidth && $mapHeight) zoomReset({animation: $data.length});
 
-  $: centroidRadius = Math.max(8, Math.min(14, 0.008 * Math.max($mapWidth, $mapHeight)));
+  $: centroidRadius = Math.max(8, Math.min(10, 0.008 * Math.max($mapWidth, $mapHeight)));
 </script>
 
 <svelte:window on:keydown={handleKeyDown} on:keyup={handleKeyUp} on:mousewheel={handleScroll} />
