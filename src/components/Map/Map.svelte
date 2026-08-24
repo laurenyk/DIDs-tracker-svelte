@@ -122,10 +122,19 @@
   }
 
   function handleHoverTagClick(e) {
-    const { detail: { category, name } } = e;
+  const { detail: { category, name } } = e;
+  
+  if (category === 'name') {
+    // Find country by name and navigate to its card
+    const country = $dataCountries.find(c => c.name.name === name || (name === 'United States' && c.name.name === 'United States of America'));
+    if (country) {
+      selectedId.set(country.id);
+    }
+  } else {
     resetAllFilters();
     filterByCategory(category, name);
   }
+}
 
   function handleClusterClick(centroid, scale, mt, it, width, height) {
     const scaleDiff = scale / mt.k;
