@@ -307,7 +307,7 @@
 <style>
  .filter-bar-top {
   width: 100%;
-  padding: 2.1rem 0 1.3rem 0;
+  padding: 1.2rem 0 1.3rem 0;
   /* background: linear-gradient(90deg, #f7faff 0%, #c9e7fa 50%, #aee9f8 100%); */
   background: #c9e7fa;
   border-radius: 2.7em;
@@ -395,7 +395,7 @@
   cursor: pointer;
   letter-spacing: 0.07em;
   outline: none;
-  margin: 1.2em 0 1.8em 0;
+  margin: 0.6em 0 0.8em 0;
   position: relative;
   overflow: hidden;
   transition:
