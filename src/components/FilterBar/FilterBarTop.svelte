@@ -323,6 +323,8 @@
 .more-filters-wrapper {
   padding: 0 2.2rem;
   margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .share-panel, .logo {
