@@ -20,6 +20,8 @@
   const pathGrowDuration = 300;
   const cornerRadius = 5;
   const offset = 20;
+  const maxTextWidth = 140; // Max width for text wrapping
+  const charWidthEstimate = 8; // Approximate character width in pixels
 
   let textCategoryElems = [];
   let textNameElems = [];
@@ -53,6 +55,25 @@
   return statusRenameDict[status] || status;
 }
 
+  // Function to wrap text into multiple lines
+  function wrapText(text, maxWidth = maxTextWidth) {
+    if (!text) return [''];
+    const charsPerLine = Math.max(1, Math.floor(maxWidth / charWidthEstimate));
+    const words = text.split(' ');
+    const lines = [];
+    let currentLine = '';
+
+    for (let word of words) {
+      if ((currentLine + word).length <= charsPerLine) {
+        currentLine += (currentLine ? ' ' : '') + word;
+      } else {
+        if (currentLine) lines.push(currentLine);
+        currentLine = word;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+    return lines.length > 0 ? lines : [text];
+  }
 
   $: tags = [
     {
@@ -121,7 +142,7 @@
     const { direction } = tag;
     const { width: widthCategory } = textCategoryElems[i].getBBox();
     const { width: widthName, height } = textName.getBBox();
-    const width = Math.max(widthCategory, widthName);
+    const width = Math.max(widthCategory, widthName, maxTextWidth);
     return {
       ...tag,
       x4: tag.x4 + width * direction,
@@ -205,17 +226,21 @@
           </text>
         {/if}
         <text
-        class="tag-text-name"
-        text-anchor="{tag.direction === 1 ? 'start' : 'end'}"
-        dx={labelArrowWidth * tag.direction}
-        dy={tag.textNameYOffset}
-        fill={data.categories.new_status.color} 
-      >
-        {tag.category === 'new_status' ? getDisplayStatus(tag.name) : tag.name}
-      </text>
+          class="tag-text-name"
+          text-anchor="{tag.direction === 1 ? 'start' : 'end'}"
+          dx={labelArrowWidth * tag.direction}
+          dy={tag.textNameYOffset}
+          fill={data.categories.new_status.color}
+        >
+          {#each wrapText(tag.category === 'new_status' ? getDisplayStatus(tag.name) : tag.name) as line, idx}
+            <tspan x="{labelArrowWidth * tag.direction}" dy={idx === 0 ? 0 : '1.2em'}>
+              {line}
+            </tspan>
+          {/each}
+        </text>
        </g>
-    </g>
-  {/each}
+     </g>
+   {/each}
 </g>
 <Centroid
   dataCountry={data}
@@ -292,6 +317,7 @@ text {
   letter-spacing: 0.01em;
   fill: inherit;    /* Use the fill from the Svelte attribute */
   text-shadow: none;
+  word-spacing: 100vw;
 }
 
 g.tag-label.selectable:hover .tag-label-path:not(.background) {
