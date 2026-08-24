@@ -17,7 +17,7 @@
   const dispatch = createEventDispatcher();
 
   const labelArrowWidth = 30;
-  const pathGrowDuration = 200;
+  const pathGrowDuration = 300;
   const cornerRadius = 5;
   const offset = 20;
 
