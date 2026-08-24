@@ -32,7 +32,7 @@
 
   if (mode === 'stroke') {
     ctx.strokeStyle = fallbackFillColor;
-    ctx.lineWidth = 2.5;  // <--- thinner fallback for regions
+    ctx.lineWidth = 2;  // <--- thinner fallback for regions
     ctx.stroke(p);
   }
 }
