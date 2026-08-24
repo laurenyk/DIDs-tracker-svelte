@@ -80,9 +80,9 @@
   /* top: auto;
   bottom: bottom; */
   z-index: 800;
-  width: 230px;
-  min-width: 230px;
-  max-width: 230px;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   margin: 0 1.4rem;
   padding: 1.2rem 0.7rem 1.6rem 0.7rem;
   color: #0492c2;
