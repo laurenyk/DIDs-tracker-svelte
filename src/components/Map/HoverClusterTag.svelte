@@ -139,7 +139,6 @@
         class:country={tag.category === 'country'}
         d={tagLabelPath(tag.x2, tag.y2, tag.x3, tag.y3, tag.x4, tag.y4, tag.x5, tag.y5, tag.x6, tag.y6, tag.direction * cornerRadius)}
         fill={data.color}
-        fill-opacity="0.2"
       />
       <path
         class="tag-label-path"
