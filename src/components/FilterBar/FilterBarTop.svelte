@@ -323,7 +323,7 @@
   padding: 0.7rem 2.2rem;
   grid-template-columns: repeat(1, 1fr);
   column-gap: 1.1rem;
-  row-gap: 1.1rem;
+  row-gap: 0.3rem;
   align-items: stretch;
   justify-items: stretch;
   justify-content: end;
@@ -375,7 +375,7 @@
   .grid-container {
     padding: 0.6rem 0.4rem;
     column-gap: 0.7rem;
-    row-gap: 0.7rem;
+    row-gap: 0.3rem;
   }
 }
 
