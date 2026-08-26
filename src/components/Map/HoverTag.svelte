@@ -133,7 +133,7 @@
   
 </script>
 
-<g class="shadow-hover-tag">
+<g class="shadow-hover-tag" visibility="hidden" aria-hidden="true" pointer-events="none">
   {#each tagsPaths as tag, i (tag.id)}
     <text
       class="tag-text-category"
@@ -269,6 +269,12 @@ g.tag-label {
   stroke: #e0f7fa;
   stroke-width: 7;
   fill: none;
+}
+
+/* To remove text in the top left corner */
+.shadow-hover-tag {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Text styling */
