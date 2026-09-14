@@ -70,7 +70,8 @@
       shortCuts: countryGroups,
       fullRollup: [],
       rollup: [],
-      info: null
+      info: null,
+      showBarChart: true
     },
     {
       filter: statusFilter,
@@ -78,7 +79,8 @@
       shortCuts: [],
       fullRollup: $fullStatusRollup,
       rollup: $statusRollup,
-      info: $definitions.status
+      info: $definitions.status,
+      showBarChart: true
     }
   ].map((d, i) => ({...d, id: i}));
 
@@ -89,7 +91,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullUseCaseRollup,
     //   rollup: $useCaseRollup,
-    //   info: $definitions.use_case
+    //   info: $definitions.use_case,
+    //   showBarChart: false
     // },
     // {
     //   filter: incomeGroupFilter,
@@ -97,7 +100,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullincomeGroupRollup,
     //   rollup: $incomeGroupRollup,
-    //   info: $definitions.income_group
+    //   info: $definitions.income_group,
+    //   showBarChart: false
     // },
     // {
     //   filter: authenticationMethodFilter,
@@ -105,7 +109,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullauthenticationMethodRollup,
     //   rollup: $authenticationMethodRollup,
-    //   info: $definitions.authentication_method
+    //   info: $definitions.authentication_method,
+    //   showBarChart: false
     // },
     // {
     //   filter: idMediumFilter,
@@ -113,7 +118,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullidMediumRollup,
     //   rollup: $idMediumRollup,
-    //   info: $definitions.id_medium
+    //   info: $definitions.id_medium,
+    //   showBarChart: false
     // },
     // {
     //   filter: interoperabilityFilter,
@@ -121,7 +127,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullinteroperabilityRollup,
     //   rollup: $interoperabilityRollup,
-    //   info: $definitions.interoperability
+    //   info: $definitions.interoperability,
+    //   showBarChart: false
     // },
   ].map((d, i) => ({...d, id: i}));
 
@@ -132,7 +139,8 @@
       shortCuts: [],
       fullRollup: $fullincomeGroupRollup,
       rollup: $incomeGroupRollup,
-      info: $definitions.income_group
+      info: $definitions.income_group,
+      showBarChart: false
     },
     {
       filter: authenticationMethodFilter,
@@ -140,7 +148,8 @@
       shortCuts: [],
       fullRollup: $fullauthenticationMethodRollup,
       rollup: $authenticationMethodRollup,
-      info: $definitions.authentication_method
+      info: $definitions.authentication_method,
+      showBarChart: false
     },
     {
       filter: idMediumFilter,
@@ -148,7 +157,8 @@
       shortCuts: [],
       fullRollup: $fullidMediumRollup,
       rollup: $idMediumRollup,
-      info: $definitions.id_medium
+      info: $definitions.id_medium,
+      showBarChart: false
     },
     {
       filter: interoperabilityFilter,
@@ -156,7 +166,8 @@
       shortCuts: [],
       fullRollup: $fullinteroperabilityRollup,
       rollup: $interoperabilityRollup,
-      info: $definitions.interoperability
+      info: $definitions.interoperability,
+      showBarChart: false
     },
     {
       filter: systemNameFilter,
@@ -164,7 +175,8 @@
       shortCuts: [],
       fullRollup: $fullsystemNameRollup,
       rollup: $systemNameRollup,
-      info: $definitions.system_name
+      info: $definitions.system_name,
+      showBarChart: false
     },
     // {
     //   filter: incomeGroupFilter,
@@ -172,7 +184,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullincomeGroupRollup,
     //   rollup: $incomeGroupRollup,
-    //   info: $definitions.income_group
+    //   info: $definitions.income_group,
+    //   showBarChart: false
     // },
     {
       filter: dataProtectionFilter,
@@ -180,7 +193,8 @@
       shortCuts: [],
       fullRollup: $fulldataProtectionRollup,
       rollup: $dataProtectionRollup,
-      info: $definitions.data_protection
+      info: $definitions.data_protection,
+      showBarChart: false
     },
     {
       filter: inclusionFilter,
@@ -188,7 +202,8 @@
       shortCuts: [],
       fullRollup: $fullinclusionRollup,
       rollup: $inclusionRollup,
-      info: $definitions.inclusion_risk
+      info: $definitions.inclusion_risk,
+      showBarChart: false
     },
     {
       filter: controversiesFilter,
@@ -196,7 +211,8 @@
       shortCuts: [],
       fullRollup: $fullcontroversiesRollup,
       rollup: $controversiesRollup,
-      info: $definitions.controversies
+      info: $definitions.controversies,
+      showBarChart: false
     },
     {
       filter: launchYearFilter,
@@ -204,7 +220,8 @@
       shortCuts: [],
       fullRollup: $fulllaunchYearRollup,
       rollup: $launchYearRollup,
-      info: null
+      info: null,
+      showBarChart: false
     },
     // {
     //   filter: technologyPartnerFilter,
@@ -212,7 +229,8 @@
     //   shortCuts: [],
     //   fullRollup: $fulltechnologyPartnerRollup,
     //   rollup: $technologyPartnerRollup,
-    //   info: $definitions.technology
+    //   info: $definitions.technology,
+    //   showBarChart: false
     // },
     // {
     //   filter: fundingSourceFilter,
@@ -220,7 +238,8 @@
     //   shortCuts: [],
     //   fullRollup: $fullfundingSourceRollup,
     //   rollup: $fundingSourceRollup,
-    //   info: $definitions.funding_source
+    //   info: $definitions.funding_source,
+    //   showBarChart: false
     // },
     // {
     //   filter: internationalpartnerFilter,
@@ -228,10 +247,10 @@
     //   shortCuts: [],
     //   fullRollup: $fullinternationalpartnerRollup,
     //   rollup: $internationalpartnerRollup,
-    //   info: $definitions.international_partners
+    //   info: $definitions.international_partners,
+    //   showBarChart: false
     // }
   ].map((d, i) => ({...d, id: i}));
-
 
   $: maxColumns = Math.max(dropdownsTop.length, 4);
 </script>
@@ -242,7 +261,7 @@
 >
   <FilterTitle label="Filters" />
   <div class="standard grid-container">
-    {#each dropdownsTop as { id, filter, label, fullRollup, rollup, info, shortCuts } (id)}
+    {#each dropdownsTop as { id, filter, label, fullRollup, rollup, info, shortCuts, showBarChart } (id)}
       <Dropdown
         filter={filter}
         label={label}
@@ -253,6 +272,7 @@
         tooltip={tooltip}
         showReset
         showClickHint={`${$isVertical ? 'Tap' : 'Click'} to filter`}
+        showBarChart={showBarChart}
       />
     {/each}
     <div class="share-panel"></div>
@@ -273,7 +293,7 @@
   <div transition:slide>
     <div transition:fade>
       <div class="extra grid-container">
-        {#each dropdownsBottomExtra as { id, filter, label, fullRollup, rollup, info } (id)}
+        {#each dropdownsBottomExtra as { id, filter, label, fullRollup, rollup, info, showBarChart } (id)}
           <Dropdown
             filter={filter}
             label={label}
@@ -283,6 +303,7 @@
             tooltip={tooltip}
             showReset
             showClickHint={`${$isVertical ? 'Tap' : 'Click'} to filter`}
+            showBarChart={showBarChart}
           />
         {/each}
       </div>
@@ -331,48 +352,19 @@
   display: none;
 }
 
-@media (min-width: 1000px) {
-  .share-panel {
-    display: block;
-  }
-  .logo {
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 @media (min-width: 600px) {
   .grid-container {
     grid-template-columns: repeat(var(--halfMaxColumns), 1fr);
   }
-  .grid-container.standard {
-    grid-template-columns: repeat(2, 1fr);
+
+  .more-filters-wrapper {
+    padding: 0 0.4rem;
   }
 }
 
 @media (min-width: 1000px) {
   .grid-container {
     grid-template-columns: repeat(var(--maxColumns), 1fr);
-  }
-  .grid-container.standard {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .filter-bar-top {
-    border-radius: 0;
-    padding: 0.4rem 0 0.4rem 0;
-  }
-  .grid-container {
-    padding: 0.6rem 0.4rem;
-    column-gap: 0.7rem;
-    row-gap: 0.3rem;
-  }
-  .more-filters-wrapper {
-    padding: 0 0.4rem;
   }
 }
 
