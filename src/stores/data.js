@@ -87,22 +87,22 @@ export const scaledData = derived(
         },
         categories: {
           ...d.categories,
-          new_status: {
-            name: d.categories.new_status,
-            title: $categoryNameScale.new_status,
-            color: $statusColorScale[d.categories.new_status],
-            filterable: true
-          },
           system: {
             name: d.categories.system,
             title: $categoryNameScale.system,
             color: styles.gray,
             filterable: false
           },
-          income: {
-            name: d.categories.income,
-            title: $categoryNameScale.income,
-            color: $incomeColorScale[d.categories.income],
+          launch_year: {
+            name: d.categories.launch_year,
+            title: $categoryNameScale.launch_year,
+            color: $launchYearColorScale[d.categories.launch_year],
+            filterable: true
+          },
+          new_status: {
+            name: d.categories.new_status,
+            title: $categoryNameScale.new_status,
+            color: $statusColorScale[d.categories.new_status],
             filterable: true
           },
           authentication: {
@@ -117,16 +117,22 @@ export const scaledData = derived(
             color: $mediumColorScale[d.categories.medium],
             filterable: true
           },
-          interoperability: {
-            name: d.categories.interoperability,
-            title: $categoryNameScale.interoperability,
-            color: $interoperabilityColorScale[d.categories.interoperability],
+          income: {
+            name: d.categories.income,
+            title: $categoryNameScale.income,
+            color: $incomeColorScale[d.categories.income],
             filterable: true
           },
           protection: {
             name: d.categories.protection,
             title: $categoryNameScale.protection,
             color: $protectionColorScale[d.categories.protection],
+            filterable: true
+          },
+          interoperability: {
+            name: d.categories.interoperability,
+            title: $categoryNameScale.interoperability,
+            color: $interoperabilityColorScale[d.categories.interoperability],
             filterable: true
           },
           inclusion: {
@@ -139,12 +145,6 @@ export const scaledData = derived(
             name: d.categories.controversies,
             title: $categoryNameScale.controversies,
             color: $controversiesColorScale[d.categories.controversies],
-            filterable: true
-          },
-          launch_year: {
-            name: d.categories.launch_year,
-            title: $categoryNameScale.launch_year,
-            color: $launchYearColorScale[d.categories.launch_year],
             filterable: true
           },
         }
