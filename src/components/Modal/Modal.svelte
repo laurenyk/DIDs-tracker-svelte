@@ -43,13 +43,18 @@
     close();
   }
 
-  $: categories = orderBy(Object.keys(datum.categories).map(key => {
-    return {
-      category: key,
-      ...datum.categories[key]
-    };
-  }),
-  'filterable', 'desc');
+  $: categories = orderBy(
+    Object.keys(datum.categories)
+      .map((key) => {
+        return {
+          category: key,
+          ...datum.categories[key]
+        };
+      })
+      .filter((cat) => cat.title && cat.name),
+    'filterable',
+    'desc'
+  );
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
