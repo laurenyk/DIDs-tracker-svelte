@@ -48,15 +48,17 @@ export const categoryNameScale = writable({
   // international_partner:  'Internation Partner',
 });
 
+const statusColorAssignments = {
+  Launched: statusColors[4],
+  Pilot: statusColors[3],
+  Development: statusColors[2],
+  Research: statusColors[0],
+  Inactive: statusColors[1],
+  Canceled: statusColors[5],
+  Other: statusColors[6]
+};
 
-export const statusColorScale = writable(
-  (function () {
-    return statusLevels.reduce(
-      (acc, cur, i) => ({ ...acc, [cur.name]: statusColors[i] }),
-      {}
-    );
-  })()
-);
+export const statusColorScale = writable(statusColorAssignments);
 
 export const countryColorScale = derived(countryFilter, $countryFilter => {
   return generateHarmonicColorScale($countryFilter.map(d => d.name));
@@ -113,5 +115,3 @@ export const launchYearColorScale = derived(launchYearFilter, $launchYearFilter 
 // export const internationalpartnerColorScale = derived(internationalpartnerFilter, $internationalpartnerFilter => {
 //   return generateHarmonicColorScale($internationalpartnerFilter.map(d => d.name));
 // });
-
-
