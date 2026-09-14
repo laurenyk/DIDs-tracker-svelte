@@ -163,10 +163,6 @@
       {/each}
     </ul>
   </div>
-  <BarChart
-    rollup={rollup}
-    fullRollup={fullRollup}
-    dummy={!rollup.length || !fullRollup.length}
   {#if showBarChart}
     <BarChart
       rollup={rollup}
@@ -207,7 +203,6 @@
   {/if}
 </div>
 
-<!--
 <style>
   .dropdown {
     position: relative;
@@ -444,4 +439,3 @@
   border-radius: 0.7em;
  }
 </style>
--->
