@@ -25,6 +25,7 @@
   export let showReset = false;
   export let hideColorBoxes = false;
   export let showClickHint = false;
+  export let showBarChart = true;
 
   let searchValue = '';
   let hoveredSuggestion = null;
@@ -162,11 +163,17 @@
       {/each}
     </ul>
   </div>
-  /* <BarChart
+  <BarChart
     rollup={rollup}
     fullRollup={fullRollup}
     dummy={!rollup.length || !fullRollup.length}
-  /> */
+  {#if showBarChart}
+    <BarChart
+      rollup={rollup}
+      fullRollup={fullRollup}
+      dummy={!rollup.length || !fullRollup.length}
+    />
+  {/if}
   {#if (showSuggestions)}
     <div class="suggestions">
       <input
@@ -200,6 +207,7 @@
   {/if}
 </div>
 
+<!--
 <style>
   .dropdown {
     position: relative;
@@ -436,3 +444,4 @@
   border-radius: 0.7em;
  }
 </style>
+-->
