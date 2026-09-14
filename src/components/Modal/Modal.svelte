@@ -43,18 +43,25 @@
     close();
   }
 
-  $: categories = orderBy(
-    Object.keys(datum.categories)
-      .map((key) => {
-        return {
-          category: key,
-          ...datum.categories[key]
-        };
-      })
-      .filter((cat) => cat.title && cat.name),
-    'filterable',
-    'desc'
-  );
+  const categoryOrder = [
+    'system',
+    'launch_year',
+    'new_status',
+    'authentication',
+    'medium',
+    'income',
+    'protection',
+    'interoperability',
+    'inclusion',
+    'controversies'
+  ];
+
+  $: categories = categoryOrder
+    .map((key) => ({
+      category: key,
+      ...datum.categories[key]
+    }))
+    .filter((cat) => cat.title && cat.name);
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
