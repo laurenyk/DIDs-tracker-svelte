@@ -115,7 +115,7 @@
           {#each categories as cat (cat.title)}
             <div
               class="category"
-              use:css={{chipColor: cat.color}}
+              use:css={{chipColor: datum.categories.new_status.color}}
             >
               <h3>{cat.title}</h3>
               {#if (cat.filterable)}
