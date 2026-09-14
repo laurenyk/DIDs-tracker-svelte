@@ -5,7 +5,6 @@ import { loadTrackerData } from '../utils/load';
 import {
   statusFilter,
   countryFilter,
-  useCaseFilter,
   systemNameFilter,
   incomeGroupFilter,
   authenticationMethodFilter,
@@ -21,7 +20,6 @@ import {
   categoryNameScale,
   statusColorScale,
   countryColorScale,
-  useCaseColorScale,
   incomeColorScale,
   authenticationColorScale,
   mediumColorScale,
@@ -55,7 +53,6 @@ export const scaledData = derived(
     categoryNameScale,
     statusColorScale,
     countryColorScale,
-    useCaseColorScale,
     incomeColorScale,
     authenticationColorScale,
     mediumColorScale,
@@ -70,7 +67,6 @@ export const scaledData = derived(
     $categoryNameScale,
     $statusColorScale,
     $countryColorScale,
-    $useCaseColorScale,
     $incomeColorScale,
     $authenticationColorScale,
     $mediumColorScale,
@@ -97,24 +93,6 @@ export const scaledData = derived(
             color: $statusColorScale[d.categories.new_status],
             filterable: true
           },
-          use_case: {
-            name: d.categories.use_case,
-            title: $categoryNameScale.use_case,
-            color: $useCaseColorScale[d.categories.use_case],
-            filterable: true
-          },
-          // corporate_partnership: {
-          //   name: d.categories.corporate_partnership,
-          //   title: $categoryNameScale.corporate_partnership,
-          //   color: styles.gray,
-          //   filterable: false
-          // },
-          // crossborder_partnerships: {
-          //   name: d.categories.crossborder_partnerships,
-          //   title: $categoryNameScale.crossborder_partnerships,
-          //   color: styles.gray,
-          //   filterable: false
-          // },
           system: {
             name: d.categories.system,
             title: $categoryNameScale.system,
@@ -169,24 +147,6 @@ export const scaledData = derived(
             color: $launchYearColorScale[d.categories.launch_year],
             filterable: true
           },
-          // technology: {
-          //   name: d.categories.technology,
-          //   title: $categoryNameScale.technology,
-          //   color: styles.gray,
-          //   filterable: true
-          // },
-          // funding: {
-          //   name: d.categories.funding,
-          //   title: $categoryNameScale.funding,
-          //   color: $fundingColorScale[d.categories.funding],
-          //   filterable: true
-          // },
-          // international_partner: {
-          //   name: d.categories.international_partner,
-          //   title: $categoryNameScale.international_partner,
-          //   color: styles.gray,
-          //   filterable: true
-          // }
         }
       };
     });
@@ -197,7 +157,6 @@ export const data = derived(
     scaledData,
     statusFilter,
     countryFilter,
-    useCaseFilter,
     systemNameFilter,
     incomeGroupFilter,
     authenticationMethodFilter,
@@ -212,7 +171,6 @@ export const data = derived(
     $scaledData,
     $statusFilter,
     $countryFilter,
-    $useCaseFilter,
     $systemNameFilter,
     $incomeGroupFilter,
     $authenticationMethodFilter,
@@ -229,7 +187,6 @@ export const data = derived(
         show:
           hasOverlap([d.categories.new_status.name], $statusFilter) &&
           hasOverlap([d.name.name], $countryFilter) &&
-          hasOverlap([d.categories.use_case.name], $useCaseFilter) &&
           hasOverlap([d.categories.system.name], $systemNameFilter) &&
           hasOverlap([d.categories.income.name], $incomeGroupFilter)  &&
           hasOverlap([d.categories.authentication.name], $authenticationMethodFilter) &&
