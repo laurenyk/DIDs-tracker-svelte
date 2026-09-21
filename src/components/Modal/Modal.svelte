@@ -134,8 +134,12 @@
         </div>
       </div>
       <main>
-        <h2>Key developments</h2>
-        <p>{@html datum.key_developments.replace(/\n/g, '<br>')}</p>
+        {#if (datum.key_developments)}
+          <h4>Key Developments</h4>
+          <div class="details-section">
+            <p>{@html datum.key_developments.replace(/\n/g, '<br>')}</p>
+          </div>
+        {/if}
         {#if (datum.inclusion_accessibility_risk_details)}
           <h4>Inclusion & Accessibility Risks</h4>
           <div class="details-section">
